@@ -1,0 +1,13 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.whoisthere {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+    width: 1200px;
+    height: 100vh;
+}
