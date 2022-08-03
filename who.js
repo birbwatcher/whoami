@@ -4,7 +4,7 @@ let proxyValue = document.body.querySelector('.proxy-value');
 //get ip adress
 async function getMyip(){
     let myIp = await (await fetch('https://api.ipify.org?format=json')).json();
-    document.body.querySelector('.user-ip-value').innerHTML = myIp.ip;
+    document.body.querySelector('.user-ip-value').innerHTML = '<p>' + myIp.ip + '</p>';
     return myIp.ip;
 
 }
