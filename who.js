@@ -1,31 +1,59 @@
+let mobileValue = document.body.querySelector('.mobile-value');
+let proxyValue = document.body.querySelector('.proxy-value');
+
+//get ip adress
 async function getMyip(){
     let myIp = await (await fetch('https://api.ipify.org?format=json')).json();
-    console.log(myIp.ip)
-    return myIp.ip
+    document.body.querySelector('.user-ip-value').innerHTML = myIp.ip;
+    return myIp.ip;
+
 }
 
+getMyip();
+
+//get provider, city, mobile usage and proxy usage
 async function getMyInfo() {
+    document.body.querySelector('.user-ip .loading').remove();
     let result = await (await fetch('http://ip-api.com/json/' + await getMyip() + '?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,reverse,mobile,proxy,hosting,query')).json();
-    // console.log(result.country);
-    // console.log(result.city);
-    // console.log(result.isp);
-    // console.log(result.timezone);
-    // console.log(result.mobile);
-    // console.log(result.proxy);
-    // console.log(result.query)
-    // console.log(result);
-    return result;
+    document.body.querySelector('.user-provider .loading').remove();
+    document.body.querySelector('.provider-value').innerHTML = '<p>' + result.isp + '</p>';
+    document.body.querySelector('.user-city .loading').remove();
+    document.body.querySelector('.city-value').innerHTML ='<p>' + result.city + '</p>';
+    document.body.querySelector('.use-mobile .loading').remove();
+    if (result.mobile == true) {
+        mobileValue.innerHTML ='<p> Yes </p>'; 
+    } else {
+        mobileValue.innerHTML ='<p> No </p>'
+    }
+    document.body.querySelector('.use-proxy .loading').remove();
+    if (result.proxy == true) {
+        proxyValue.innerHTML = 'Yes'; 
+    } else {
+        proxyValue.innerHTML = 'No'
+    }
+    getFlagImage(result.country);
 }
+getMyInfo()
 
+//get country flag image
 async function getFlagImage(country) {
     let flags = await (await fetch('https://flagcdn.com/en/codes.json')).json();
         for (let key in flags) {
             if (flags[key] === country) {
-                console.log(`https://flagcdn.com/40x30/${key}.png`);
+                document.body.querySelector('.countryflag').innerHTML = "<img src = " + `https://flagcdn.com/40x30/${key}.png` + ">";
                 return `https://flagcdn.com/40x30/${key}.png`
             }
         }
+}
+
+// getting OS and Browser version
+async function getOs() {
+   let result = await (await fetch ('https://api.apicagent.com/?ua=' + navigator.userAgent)).json();
+   document.body.querySelector('.user-os .loading').remove();
+   document.body.querySelector('.os-value').innerHTML = '<p>' + result.os.name + ' ' +result.os.version + '</p>';
+   document.body.querySelector('.user-browser .loading').remove();
+   document.body.querySelector('.browser-value').innerHTML ='<p>' +  result.client.name + ' ' +result.os.version + '</p>';;
 
 }
 
-showInfo();
+getOs();

@@ -4,14 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="reset.css" rel="stylesheet" type="text/css">
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 </head>
 <body>
     <div class="main-container">
-        <main class="whoisthere">
-            <span>Your ip will be here soon</span>
-        </main>
+        <div class="wrapper">
+            <main class="whoisthere">
+                <div class="user-ip">
+                    <div class="countryflag"></div>
+                    <h1>Your IP:</h1>
+                    <div class="loading"></div>
+                    <div class="user-ip-value"></div>
+                </div>
+                <div class="user-provider info-row">
+                    <p>Provider:</p>
+                    <div class="loading"></div>
+                    <div class="provider-value"></div>
+                </div>
+                <div class="user-os info-row">
+                    <p>OS:</p>
+                    <div class="loading"></div>
+                    <div class="os-value"></div>
+                </div>
+                <div class="user-browser info-row">
+                    <p>Browser:</p>
+                    <div class="loading"></div>
+                    <div class="browser-value"></div>
+                </div>
+                <div class="user-city info-row">
+                    <p>City:</p>
+                    <div class="loading"></div>
+                    <div class="city-value"></div>
+                </div>
+                <div class="use-mobile info-row">
+                    <p>Use Mobile:</p>
+                    <div class="loading"></div>
+                    <div class="mobile-value"></div>
+                </div>
+                <div class="use-proxy info-row">
+                    <p>Proxy:</p>
+                    <div class="loading"></div>
+                    <div class="proxy-value"></div>
+                </div>
+            </main>
+        </div>
     </div>
     <!-- <script src="who.js"></script> -->
 </body>
