@@ -27,9 +27,9 @@ async function getMyInfo() {
     }
     document.body.querySelector('.use-proxy .loading').remove();
     if (result.proxy == true) {
-        proxyValue.innerHTML = 'Yes'; 
+        proxyValue.innerHTML = '<p> Yes </p>'; 
     } else {
-        proxyValue.innerHTML = 'No'
+        proxyValue.innerHTML = '<p> No </p>'
     }
     getFlagImage(result.country);
 }
@@ -57,3 +57,4 @@ async function getOs() {
 }
 
 getOs();
+

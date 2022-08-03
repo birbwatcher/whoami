@@ -1,7 +1,7 @@
 .main-container {
     display: flex;
     justify-content: center;
-    /* justify-items: center; */
+    justify-items: center;
 }
 
 .wrapper {
@@ -35,6 +35,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.copy-ip {
+    align-self: center;
+}
+
+.copy-ip:hover {
+    background-color:aliceblue;
+    cursor: pointer;
 }
 
 .user-provider, .user-os, .user-browser, .user-city, .use-mobile, .use-proxy{
